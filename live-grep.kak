@@ -19,8 +19,9 @@ define-command -docstring "start a live grep in the *grep* buffer" live-grep %{
                 printf %s\\n "execute-keys '<a-;>%<a-;>d<a-;>!cat $kak_opt_live_grep_file<ret><a-;>gg'"
                 # Select matches
                 if [ $kak_opt_live_grep_select_matches = true ]; then
+                    query=$(echo $kak_quoted_text | sed "s/'/''/g")
                     printf %s\\n "try %{
-                        execute-keys '<a-;>%<a-;><a-s><a-;>s[^:]*:[^:]*:([^:]*:)?<ret><a-;>l<a-;><a-l><a-;>s$kak_quoted_text<ret><a-;>)'
+                        execute-keys '<a-;>%<a-;><a-s><a-;>s[^:]*:[^:]*:([^:]*:)?<ret><a-;>l<a-;><a-l><a-;>s$query<ret><a-;>)'
                     }"
                 fi
             }
