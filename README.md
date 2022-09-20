@@ -21,7 +21,7 @@ existing grep commands will work with live grep results.
 Enabling the `live_grep_select_matches` option will automatically select the
 query's matches in the results buffer. This allows a very quick find/replace
 workflow when combined with
-[kakoune-grep-write](https://github.com/JacobTravers/kakoune-grep-write).
+[grep-write.kak](https://github.com/JacobTravers/grep-write.kak).
 Press `<esc>` if you don't wish to keep the selections.
 
 ## Contributing
