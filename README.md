@@ -11,20 +11,18 @@ Source `live-grep.kak` in your `kakrc`, or use a plugin manager.
 
 Invoke the `live-grep` command to start a live grep. The toolsclient will be
 used if it is defined and active. Type your query into the prompt and review
-the results as you go. The match(es) on each line will be underlined.
+the results as you go.
 
 The live grep utilizes the `grepcmd` option and the `*grep*` buffer. All of the
 existing grep commands will work with live grep results.
 
 ## Configuration
 
-Enabling the `live_grep_select_matches` option will cause all of the query
-matches in the results buffer to be selected when you complete the search. This
-aids in a find/replace workflow (see
-[kakoune-grep-write](https://github.com/JacobTravers/kakoune-grep-write)).
-
-The `LiveGrepMatch` face can be changed to customize highlighting of the query
-matches in the grep buffer.
+Enabling the `live_grep_select_matches` option will automatically select the
+query's matches in the results buffer. This allows a very quick find/replace
+workflow when combined with
+[kakoune-grep-write](https://github.com/JacobTravers/kakoune-grep-write).
+Press `<esc>` if you don't wish to keep the selections.
 
 ## Contributing
 
