@@ -1,7 +1,7 @@
 declare-option -hidden str live_grep_file %sh{ echo "${TMPDIR:-/tmp}/kak-live-grep.$kak_session" }
 declare-option \
     -docstring "select all query matches in the grep buffer upon completing the search" \
-    bool kak_opt_live_grep_select_matches false
+    bool live_grep_select_matches false
 
 set-face global LiveGrepMatch "+u"
 
