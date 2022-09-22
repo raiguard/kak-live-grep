@@ -8,7 +8,7 @@ define-command -docstring "start a live grep in the *grep* buffer" live-grep %{
     evaluate-commands -try-client %opt{toolsclient} %{
         edit -scratch *grep*
         set-option buffer filetype grep
-        set-option global grep_current_line 0
+        set-option buffer grep_current_line 0
         prompt -on-change %{
             evaluate-commands %sh{
                 if [ -z "$kak_quoted_text" ]; then
