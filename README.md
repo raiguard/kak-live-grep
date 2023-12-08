@@ -28,8 +28,3 @@ existing grep commands will work with live grep results.
 * **Face:** `LiveGrepMatch` - Highlights the prompt matches in the buffer. Not visible by default.
 * **Option:** `live_grep_timeout` (int) - Adjust how responsively the results are updated. Lower timeouts will worsen performance. Defaults to `300` ms.
 * **Option:** `live_grep_results_limit` (int) - The maximum number of results that will be displayed. Defaults to `10000`.
-
-## Contributing
-
-Please send questions, requests, bug reports, and patches to the
-[mailing list](https://lists.sr.ht/~raiguard/public-inbox).
