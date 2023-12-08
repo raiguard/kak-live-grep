@@ -1,4 +1,5 @@
 declare-option -hidden bool live_grep_select_matches false
+declare-option int live_grep_timeout 300
 
 set-face global LiveGrepMatch default
 
@@ -8,6 +9,7 @@ define-command -docstring "start a live grep in the *grep* buffer" live-grep %{
         edit -scratch *grep*
         set-option buffer filetype grep
         set-option buffer grep_current_line 0
+        set-option window idle_timeout %opt{live_grep_timeout}
         prompt -on-change %{
             evaluate-commands -save-regs '"' %{
               set-register '"' %sh{
@@ -26,6 +28,7 @@ define-command -docstring "start a live grep in the *grep* buffer" live-grep %{
             nop %sh{ rm $kak_opt_live_grep_file }
             remove-hooks window LiveGrepPrompt
             remove-highlighter window/grep/live_grep_match
+            unset-option window idle_timeout
         } live-grep: %{
             nop %sh{ rm $kak_opt_live_grep_file }
             remove-hooks window LiveGrepPrompt
@@ -40,6 +43,7 @@ define-command -docstring "start a live grep in the *grep* buffer" live-grep %{
                     §"
                 fi
             }
+            unset-option window idle_timeout
         }
         hook -group LiveGrepPrompt window RawKey <s-ret> %{
             set-option window live_grep_select_matches true

@@ -29,6 +29,9 @@ Defining the `LiveGrepMatch` face will live-highlight the matches in the
 results buffer as you type. For example, to add an underline to, use
 `set-face global LiveGrepMatch +u`.
 
+The `live_grep_timeout` option allows adjusting how quickly the results are
+updated. Set to a larger timeout for larger projects.
+
 ## Contributing
 
 Please send questions, requests, bug reports, and patches to the
