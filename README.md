@@ -25,12 +25,9 @@ existing grep commands will work with live grep results.
 
 ## Configuration
 
-Defining the `LiveGrepMatch` face will live-highlight the matches in the
-results buffer as you type. For example, to add an underline to, use
-`set-face global LiveGrepMatch +u`.
-
-The `live_grep_timeout` option allows adjusting how quickly the results are
-updated. Set to a larger timeout for larger projects.
+* **Face:** `LiveGrepMatch` - Highlights the prompt matches in the buffer. Not visible by default.
+* **Option:** `live_grep_timeout` (int) - Adjust how responsively the results are updated. Lower timeouts will worsen performance. Defaults to `300` ms.
+* **Option:** `live_grep_results_limit` (int) - The maximum number of results that will be displayed. Defaults to `10000`.
 
 ## Contributing
 

@@ -1,5 +1,6 @@
 declare-option -hidden bool live_grep_select_matches false
 declare-option int live_grep_timeout 300
+declare-option int live_grep_results_limit 10000
 
 set-face global LiveGrepMatch default
 
@@ -16,8 +17,8 @@ define-command -docstring "start a live grep in the *grep* buffer" live-grep %{
                 if [ -z "$kak_quoted_text" ]; then
                   return
                 fi
-                result=$($kak_opt_grepcmd "$kak_quoted_text" | tr -d '\r')
-                printf "%s\\n" "$result"
+                result=$($kak_opt_grepcmd "$kak_quoted_text" | tr -d '\r' | head -n $kak_opt_live_grep_results_limit)
+                echo "$result"
               }
               execute-keys '<a-;>%<a-;>"_d<a-;>P<a-;>gg'
             }
