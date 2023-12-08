@@ -1,5 +1,4 @@
 declare-option -hidden bool live_grep_select_matches false
-declare-option -hidden str live_grep_file %sh{ echo "${TMPDIR:-/tmp}/kak-live-grep.$kak_session" }
 
 set-face global LiveGrepMatch default
 
@@ -10,13 +9,15 @@ define-command -docstring "start a live grep in the *grep* buffer" live-grep %{
         set-option buffer filetype grep
         set-option buffer grep_current_line 0
         prompt -on-change %{
-            evaluate-commands %sh{
+            evaluate-commands -save-regs '"' %{
+              set-register '"' %sh{
                 if [ -z "$kak_quoted_text" ]; then
-                    exit
+                  return
                 fi
-                $kak_opt_grepcmd "$kak_quoted_text" | tr -d '\r' 2>&1 > $kak_opt_live_grep_file
-                # Insert grep results
-                printf %s\\n "execute-keys '<a-;>%<a-;>d<a-;>!cat $kak_opt_live_grep_file<ret><a-;>gg'"
+                result=$($kak_opt_grepcmd "$kak_quoted_text" | tr -d '\r')
+                printf "%s\\n" "$result"
+              }
+              execute-keys '<a-;>%<a-;>"_d<a-;>P<a-;>gg'
             }
             try %{
                 add-highlighter -override window/grep/live_grep_match regex "%val{text}" 0:LiveGrepMatch
