@@ -25,6 +25,6 @@ existing grep commands will work with live grep results.
 
 ## Configuration
 
-* **Face:** `LiveGrepMatch` - Highlights the prompt matches in the buffer. Not visible by default.
+* **Face:** `LiveGrepMatch` - Highlights the prompt matches in the buffer. Defaults to bold + underline.
 * **Option:** `live_grep_timeout` (int) - Adjust how responsively the results are updated. Lower timeouts will worsen performance. Defaults to `300` ms.
 * **Option:** `live_grep_results_limit` (int) - The maximum number of results that will be displayed. Defaults to `10000`.

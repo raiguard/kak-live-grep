@@ -2,7 +2,7 @@ declare-option -hidden bool live_grep_select_matches false
 declare-option int live_grep_timeout 300
 declare-option int live_grep_results_limit 10000
 
-set-face global LiveGrepMatch default
+set-face global LiveGrepMatch default+bu
 
 define-command -docstring "start a live grep in the *grep* buffer" live-grep %{
     try %{ focus %opt{toolsclient} }
