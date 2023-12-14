@@ -1,6 +1,6 @@
 # kak-live-grep
 
-[![asciicast](https://asciinema.org/a/QFCtdSfpXby5OFfDcFCAaLiRS.svg)](https://asciinema.org/a/QFCtdSfpXby5OFfDcFCAaLiRS)
+[![asciicast](https://asciinema.org/a/wJNxtSIdzeKaXNtFEwP0mbrKc.svg)](https://asciinema.org/a/wJNxtSIdzeKaXNtFEwP0mbrKc)
 
 Search your project files live using
 [Kakoune](https://github.com/mawww/kakoune)'s built-in tools.
