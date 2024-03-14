@@ -9,7 +9,11 @@ define-command -docstring "start a live grep in the *grep* buffer" live-grep %{
     evaluate-commands -try-client %opt{toolsclient} %{
         edit -scratch *grep*
         set-option buffer filetype grep
-        set-option buffer grep_current_line 0
+        try %{
+          set-option buffer jump_current_line 0
+        } catch {
+          set-option buffer grep_current_line 0
+        }
         set-option window idle_timeout %opt{live_grep_timeout}
         prompt -on-change %{
             evaluate-commands -save-regs '"' %{
