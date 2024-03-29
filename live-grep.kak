@@ -30,12 +30,10 @@ define-command -docstring "start a live grep in the *grep* buffer" live-grep %{
                 add-highlighter -override window/grep/live_grep_match regex "%val{text}" 0:LiveGrepMatch
             }
         } -on-abort %{
-            nop %sh{ rm $kak_opt_live_grep_file }
             remove-hooks window LiveGrepPrompt
             remove-highlighter window/grep/live_grep_match
             unset-option window idle_timeout
         } live-grep: %{
-            nop %sh{ rm $kak_opt_live_grep_file }
             remove-hooks window LiveGrepPrompt
             evaluate-commands -save-regs / %sh{
                 if [ $kak_opt_live_grep_select_matches = true ]; then
