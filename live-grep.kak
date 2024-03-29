@@ -19,7 +19,7 @@ define-command -docstring "start a live grep in the *grep* buffer" live-grep %{
             evaluate-commands -save-regs '"' %{
               set-register '"' %sh{
                 if [ -z "$kak_quoted_text" ]; then
-                  exit
+                    exit
                 fi
                 result=$($kak_opt_grepcmd "$kak_quoted_text" | tr -d '\r' | head -n $kak_opt_live_grep_results_limit)
                 echo "$result"
@@ -48,7 +48,7 @@ define-command -docstring "start a live grep in the *grep* buffer" live-grep %{
             }
             unset-option window idle_timeout
         }
-        hook -group LiveGrepPrompt window RawKey <s-ret> %{
+        hook -group LiveGrepPrompt window RawKey <a-ret> %{
             set-option window live_grep_select_matches true
             remove-highlighter window/grep/live_grep_match
             execute-keys -with-hooks <ret>

@@ -15,7 +15,7 @@ Invoke the `live-grep` command to start a live grep. The toolsclient will be
 used if it is defined and active. Type your query into the prompt and review
 the results as you go.
 
-Press `<ret>` to complete the search, or `<s-ret>` to complete the search and
+Press `<ret>` to complete the search, or `<a-ret>` to complete the search and
 select all matches of the query in the results buffer. Auto-selecting the query
 matches allows for a very quick find/replace workflow when combined with
 [grep-write.kak](https://github.com/JacobTravers/grep-write.kak).
