@@ -21,7 +21,7 @@ define-command -docstring "start a live grep in the *grep* buffer" live-grep %{
                 if [ -z "$kak_quoted_text" ]; then
                     exit
                 fi
-                result=$($kak_opt_grepcmd "$kak_quoted_text" | tr -d '\r' | head -n $kak_opt_live_grep_results_limit)
+                result=$($kak_opt_grepcmd "$kak_quoted_text" < /dev/null | tr -d '\r' | head -n $kak_opt_live_grep_results_limit)
                 echo "$result"
               }
               execute-keys '<a-;>%<a-;>"_d<a-;>P<a-;>gg'
