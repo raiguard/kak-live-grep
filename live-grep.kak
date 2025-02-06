@@ -4,7 +4,7 @@ declare-option int live_grep_results_limit 10000
 
 set-face global LiveGrepMatch default+bu
 
-define-command -docstring "start a live grep in the *grep* buffer" live-grep %{
+define-command -params ..1 -docstring "live-grep [init]: start a live grep in the *grep* buffer" live-grep %{
     try %{ focus %opt{toolsclient} }
     evaluate-commands -try-client %opt{toolsclient} %{
         edit -scratch *grep*
@@ -15,7 +15,7 @@ define-command -docstring "start a live grep in the *grep* buffer" live-grep %{
             set-option buffer grep_current_line 0
         }
         set-option window idle_timeout %opt{live_grep_timeout}
-        prompt -on-change %{
+        prompt -init %arg{1} -on-change %{
             evaluate-commands -save-regs '"' %{
               set-register '"' %sh{
                 if [ -z "$kak_quoted_text" ]; then
