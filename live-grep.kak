@@ -55,3 +55,8 @@ define-command -params ..1 -docstring "live-grep [init]: start a live grep in th
         }
     }
 }
+
+hook -once global NormalIdle .* %{
+  echo -debug "WARNING: kak-live-grep has moved to https://codeberg.org/raiguard/kak-live-grep. Please update your plugin configuration."
+  echo -markup "{Error}WARNING:{default} kak-live-grep has moved to https://codeberg.org/raiguard/kak-live-grep. Please update your plugin configuration."
+}

@@ -1,3 +1,5 @@
+# This project has migrated to [Codeberg](https://codeberg.org/raiguard/kak-live-grep).
+
 # kak-live-grep
 
 [![asciicast](https://asciinema.org/a/wJNxtSIdzeKaXNtFEwP0mbrKc.svg)](https://asciinema.org/a/wJNxtSIdzeKaXNtFEwP0mbrKc)
